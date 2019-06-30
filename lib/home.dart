@@ -4,8 +4,7 @@ import 'package:tflite/tflite.dart';
 import 'dart:math' as math;
 
 import 'camera.dart';
-import 'bndbox.dart';
-import 'models.dart';
+import 'bindingBox.dart';
 
 class HomePage extends StatefulWidget {
   final List<CameraDescription> cameras;
@@ -20,24 +19,18 @@ class _HomePageState extends State<HomePage> {
   List<dynamic> _recognitions;
   int _imageHeight = 0;
   int _imageWidth = 0;
-  String _model = "";
+  String _model = "SSD MobileNet";
 
   @override
   void initState() {
     super.initState();
+    loadModel();
   }
 
   loadModel() async {
     await Tflite.loadModel(
         model: "assets/ssd_mobilenet.tflite",
         labels: "assets/ssd_mobilenet.txt");
-  }
-
-  onSelect(model) {
-    setState(() {
-      _model = model;
-    });
-    loadModel();
   }
 
   setRecognitions(recognitions, imageHeight, imageWidth) {
@@ -52,34 +45,22 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     Size screen = MediaQuery.of(context).size;
     return Scaffold(
-      body: _model == ""
-          ? Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  RaisedButton(
-                    child: const Text(ssd),
-                    onPressed: () => onSelect(ssd),
-                  ),
-                ],
-              ),
-            )
-          : Stack(
-              children: [
-                Camera(
-                  widget.cameras,
-                  _model,
-                  setRecognitions,
-                ),
-                BndBox(
-                    _recognitions == null ? [] : _recognitions,
-                    math.max(_imageHeight, _imageWidth),
-                    math.min(_imageHeight, _imageWidth),
-                    screen.height,
-                    screen.width,
-                    _model),
-              ],
-            ),
+      body: Stack(
+        children: [
+          Camera(
+            widget.cameras,
+            _model,
+            setRecognitions,
+          ),
+          BindingBox(
+              _recognitions == null ? [] : _recognitions,
+              math.max(_imageHeight, _imageWidth),
+              math.min(_imageHeight, _imageWidth),
+              screen.height,
+              screen.width,
+              _model),
+        ],
+      ),
     );
   }
 }
