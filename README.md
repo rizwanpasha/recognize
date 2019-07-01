@@ -1,18 +1,15 @@
+<a href="https://github.com/rizwanpasha/recognize">
+<img src="https://raw.githubusercontent.com/rizwanpasha/recognize/master/recognize%20app%20assets/recognize%20app%20icon%20512.png" width="80px">
+</a>
+
+
+# Recognize (v1.0)
+[Get this app now.]()
+
 # Flutter and Tensorflow Lite object detection api.
 
-Live object recognition using Flutter and Tensorflow Lite api.
+Real-time on-device object detection using flutter and tflite.
 
-<p align="center">
-<img src="/recognize app assets/recognize app icon 512.png"
-     alt="Markdown Monster icon"
-     style="width:180px;" />
-    </p>
+<img src="https://raw.githubusercontent.com/rizwanpasha/recognize/master/recognize%20app%20assets/bottle.png" width="200px" style="float:left;margin:10px">
 
-<img src="/recognize app assets/bottle.png"
-     alt="Markdown Monster icon"
-     style="float: left; width:250px; margin-right:20px;" />
-
-
-<img src="/recognize app assets/traffic light.png"
-     alt="Markdown Monster icon"
-     style="float: left; width:250px" />
+<img src="https://raw.githubusercontent.com/rizwanpasha/recognize/master/recognize%20app%20assets/traffic%20light.png" width="200px" style="float:left;margin:10px">
