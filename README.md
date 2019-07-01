@@ -4,7 +4,7 @@
 
 
 # Recognize (v1.0)
-[Get this app now.]()
+[Get this app now.](https://github.com/rizwanpasha/recognize/raw/master/recognize%20app%20assets/Recognize_1.0.0.apk)
 
 # Flutter and Tensorflow Lite object detection api.
 
